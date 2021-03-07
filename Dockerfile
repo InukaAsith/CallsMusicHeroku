@@ -7,8 +7,8 @@ RUN curl -sL https://deb.nodesource.com/setup_15.x | bash -
 RUN apt-get install -y nodejs
 RUN npm i -g npm
 RUN cd / && \
-    git clone https://github.com/suprojects/CallsMusic smp && \
-    cd smp/ && \
+    git clone -b CallsMusic https://github.com/TeamDaisyX/Daisy-X DaisyX && \
+    cd DaisyX/ && \
     rm -r .git && \
     git clone https://github.com/pytgcalls/pytgcalls && \
     cd pytgcalls/ && \
@@ -19,7 +19,7 @@ RUN cd / && \
     npm install && \
     cd ../../ && \
     pip3 install -r requirements.txt && \
-    cd /smp && \
-    pip3 install -r requirements.txt
-WORKDIR /smp
-CMD python3 main.py
+    cd /DaisyX && \
+    pip3 install -U -r requirements.txt
+WORKDIR /DaisyX
+CMD ["python3","-m","DaisyX"]
